@@ -1,12 +1,2 @@
 ---
-- name: "Download Terragrunt in Version {{ terragrunt_install_version }}"
-  get_url:
-    url: "{{ terragrunt_url }}"
-    dest: "{{ terragrunt_download_location }}"
-
-- name: Move Terragrunt for execution
-  copy:
-    src: "{{ terragrunt_download_location }}/{{ terragrunt_downloaded_file_name }}"
-    dest: "{{ terragrunt_execution_path }}/{{ terragrunt_execution_file_name }}"
-    mode: u+x,g+x,o+x
-    remote_src: true
+- include: install.yml
